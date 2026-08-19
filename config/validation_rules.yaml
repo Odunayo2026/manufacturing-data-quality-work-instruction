@@ -1,0 +1,143 @@
+metadata:
+  document_id: VAL-RULES-001
+  title: Manufacturing Production Data Quality Validation Rules
+  version: "1.0"
+  status: Portfolio Simulation
+  reporting_interval_minutes: 5
+  note: >
+    These rules are fictional and designed to demonstrate controlled,
+    traceable data-quality validation for a technical-writing portfolio.
+
+release_logic:
+  hold_if_any_severity:
+    - Critical
+  review_if_any_severity:
+    - Major
+  anomaly_flags_do_not_fail_release_automatically: true
+
+rules:
+  - id: DQ-001
+    layer: schema
+    area: required_fields
+    fields: [Record_ID, Facility_ID, Production_Line_ID, Machine_ID, Batch_ID, Product_Code, Timestamp, Shift_Code, Operator_Team, Temperature_C, Pressure_kPa, Line_Speed_UPM, Cycle_Time_sec, Energy_kWh, Units_Produced, Defect_Count, Downtime_Min, Quality_Status]
+    rule_type: required_columns
+    requirement: All required fields shall be present.
+    severity: Critical
+    failure_action: HOLD dataset and investigate source/schema mismatch.
+
+  - id: DQ-002
+    layer: domain
+    area: identifier_completeness
+    fields: [Record_ID, Facility_ID, Machine_ID, Batch_ID, Timestamp]
+    rule_type: non_null
+    requirement: Required identifiers shall not be null or blank.
+    severity: Critical
+    failure_action: HOLD affected dataset pending resolution.
+
+  - id: DQ-004
+    layer: schema
+    area: data_type
+    fields: [Temperature_C, Pressure_kPa, Line_Speed_UPM, Cycle_Time_sec, Energy_kWh, Units_Produced, Defect_Count, Downtime_Min]
+    rule_type: numeric_type
+    requirement: Numeric fields shall parse to their approved numeric types.
+    severity: Major
+    failure_action: Document and investigate before release.
+
+  - id: DQ-006
+    layer: domain
+    area: completeness
+    fields: [Temperature_C, Pressure_kPa, Line_Speed_UPM, Cycle_Time_sec, Energy_kWh, Units_Produced, Defect_Count, Downtime_Min]
+    rule_type: non_null
+    requirement: Required numeric measurements shall not be null.
+    severity: Major
+    failure_action: Document and investigate before release.
+
+  - id: DQ-007
+    layer: domain
+    area: potential_duplicates
+    fields: [Facility_ID, Batch_ID, Machine_ID, Timestamp]
+    rule_type: composite_duplicate
+    requirement: Duplicate composite business keys shall be flagged for review and shall not be auto-deleted.
+    severity: Major
+    failure_action: Investigate potential duplicates; preserve source records.
+
+  - id: DQ-008
+    layer: domain
+    area: numeric_ranges
+    rule_type: configured_range
+    requirement: Numeric fields shall remain within configured hard validity limits.
+    severity: Major
+    failure_action: Flag and investigate; do not auto-correct.
+    ranges:
+      Temperature_C: {min: 60, max: 100}
+      Pressure_kPa: {min: 160, max: 280}
+      Line_Speed_UPM: {min: 40, max: 120}
+      Cycle_Time_sec: {min: 0.70, max: 1.80}
+      Energy_kWh: {min: 0, max: 25}
+      Units_Produced: {min: 0, max: 600}
+      Defect_Count: {min: 0, max: 600}
+      Downtime_Min: {min: 0, max: 5}
+
+  - id: DQ-009
+    layer: domain
+    area: allowed_values
+    rule_type: categorical_domain
+    requirement: Categorical values shall belong to the approved domain.
+    severity: Major
+    failure_action: Document invalid category and investigate.
+    allowed_values:
+      Facility_ID: [FAC-01, FAC-02, FAC-03]
+      Production_Line_ID: [L01, L02, L03]
+      Product_Code: [PRD-A, PRD-B, PRD-C, PRD-D]
+      Shift_Code: [A, B, C]
+      Operator_Team: [TEAM-01, TEAM-02, TEAM-03, TEAM-04, TEAM-05, TEAM-06]
+      Quality_Status: [PASS, REVIEW, HOLD]
+
+  - id: DQ-010
+    layer: domain
+    area: timestamp_validity
+    fields: [Timestamp]
+    rule_type: datetime_format
+    requirement: Timestamp shall parse as ISO 8601 format YYYY-MM-DDTHH:MM:SS.
+    severity: Major
+    failure_action: Document invalid timestamp and investigate.
+
+  - id: DQ-021
+    layer: cross_field
+    area: defect_count_consistency
+    fields: [Defect_Count, Units_Produced]
+    rule_type: comparison
+    expression: Defect_Count <= Units_Produced
+    requirement: Defect_Count shall not exceed Units_Produced.
+    severity: Critical
+    failure_action: HOLD dataset and investigate record logic.
+
+  - id: DQ-022
+    layer: cross_field
+    area: downtime_interval_consistency
+    fields: [Downtime_Min]
+    rule_type: comparison
+    expression: Downtime_Min <= 5
+    requirement: Downtime_Min shall not exceed the 5-minute reporting interval.
+    severity: Critical
+    failure_action: HOLD dataset and investigate reporting interval logic.
+
+  - id: DQ-023
+    layer: cross_field
+    area: quality_status_consistency
+    fields: [Quality_Status, Defect_Count, Units_Produced]
+    rule_type: derived_consistency
+    expression: PASS requires defect_rate_pct <= 2.0
+    requirement: Records marked PASS shall have a defect rate of 2.0% or less.
+    severity: Major
+    failure_action: Document inconsistency and review quality disposition.
+
+  - id: DQ-024
+    layer: statistical_review
+    area: temperature_anomaly
+    fields: [Temperature_C]
+    rule_type: review_flag
+    method: robust_z_score
+    requirement: Statistically extreme values shall be flagged for review but shall not be treated as invalid solely because they are extreme.
+    severity: Review
+    failure_action: Preserve value, review context, and escalate only if another controlled requirement is violated.
