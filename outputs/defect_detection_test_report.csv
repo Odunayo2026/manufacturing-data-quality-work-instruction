@@ -1,0 +1,57 @@
+Manifest_ID,Record_ID,Defect_Type,Expected_Rule_ID,Expected_Detection,Expected_Severity,Detected,Detection_Status
+DEF-001,REC-000512,Missing required identifier,DQ-002,Identifier completeness failure,Critical,True,DETECTED
+DEF-002,REC-002412,Missing required identifier,DQ-002,Identifier completeness failure,Critical,True,DETECTED
+DEF-003,REC-005602,Missing required identifier,DQ-002,Identifier completeness failure,Critical,True,DETECTED
+DEF-004,REC-009202,Missing required identifier,DQ-002,Identifier completeness failure,Critical,True,DETECTED
+DEF-005,REC-000802,Duplicate composite key,DQ-007,Potential duplicate flagged,Major,True,DETECTED
+DEF-006,REC-003802,Duplicate composite key,DQ-007,Potential duplicate flagged,Major,True,DETECTED
+DEF-007,REC-007602,Duplicate composite key,DQ-007,Potential duplicate flagged,Major,True,DETECTED
+DEF-008,REC-012002,Duplicate composite key,DQ-007,Potential duplicate flagged,Major,True,DETECTED
+DEF-009,REC-001302,Invalid categorical value,DQ-009,Allowed-category failure,Major,True,DETECTED
+DEF-010,REC-004302,Invalid categorical value,DQ-009,Allowed-category failure,Major,True,DETECTED
+DEF-011,REC-008302,Invalid categorical value,DQ-009,Allowed-category failure,Major,True,DETECTED
+DEF-012,REC-014302,Invalid categorical value,DQ-009,Allowed-category failure,Major,True,DETECTED
+DEF-013,REC-001602,Malformed timestamp,DQ-010,Datetime parse/format failure,Major,True,DETECTED
+DEF-014,REC-004902,Malformed timestamp,DQ-010,Datetime parse/format failure,Major,True,DETECTED
+DEF-015,REC-008902,Malformed timestamp,DQ-010,Datetime parse/format failure,Major,True,DETECTED
+DEF-016,REC-015302,Malformed timestamp,DQ-010,Datetime parse/format failure,Major,True,DETECTED
+DEF-017,REC-001902,Negative count,DQ-008,Numeric range failure,Major,True,DETECTED
+DEF-018,REC-005202,Negative count,DQ-008,Numeric range failure,Major,True,DETECTED
+DEF-019,REC-009502,Negative count,DQ-008,Numeric range failure,Major,True,DETECTED
+DEF-020,REC-016302,Negative count,DQ-008,Numeric range failure,Major,True,DETECTED
+DEF-021,REC-002202,Out-of-range numeric value,DQ-008,Range validation failure,Major,True,DETECTED
+DEF-022,REC-005902,Out-of-range numeric value,DQ-008,Range validation failure,Major,True,DETECTED
+DEF-023,REC-010202,Out-of-range numeric value,DQ-008,Range validation failure,Major,True,DETECTED
+DEF-024,REC-017302,Out-of-range numeric value,DQ-008,Range validation failure,Major,True,DETECTED
+DEF-025,REC-002502,Out-of-range numeric value,DQ-008,Range validation failure,Major,True,DETECTED
+DEF-026,REC-006502,Out-of-range numeric value,DQ-008,Range validation failure,Major,True,DETECTED
+DEF-027,REC-010902,Out-of-range numeric value,DQ-008,Range validation failure,Major,True,DETECTED
+DEF-028,REC-018302,Out-of-range numeric value,DQ-008,Range validation failure,Major,True,DETECTED
+DEF-029,REC-002802,Invalid categorical value,DQ-009,Allowed-category failure,Major,True,DETECTED
+DEF-030,REC-006902,Invalid categorical value,DQ-009,Allowed-category failure,Major,True,DETECTED
+DEF-031,REC-011602,Invalid categorical value,DQ-009,Allowed-category failure,Major,True,DETECTED
+DEF-032,REC-019302,Invalid categorical value,DQ-009,Allowed-category failure,Major,True,DETECTED
+DEF-033,REC-003102,Incorrect data type,DQ-004,Numeric type validation failure,Major,True,DETECTED
+DEF-034,REC-007202,Incorrect data type,DQ-004,Numeric type validation failure,Major,True,DETECTED
+DEF-035,REC-012302,Incorrect data type,DQ-004,Numeric type validation failure,Major,True,DETECTED
+DEF-036,REC-020302,Incorrect data type,DQ-004,Numeric type validation failure,Major,True,DETECTED
+DEF-037,REC-003402,Missing numeric value,DQ-006,Completeness failure,Major,True,DETECTED
+DEF-038,REC-007902,Missing numeric value,DQ-006,Completeness failure,Major,True,DETECTED
+DEF-039,REC-013002,Missing numeric value,DQ-006,Completeness failure,Major,True,DETECTED
+DEF-040,REC-021302,Missing numeric value,DQ-006,Completeness failure,Major,True,DETECTED
+DEF-041,REC-003702,Cross-field inconsistency,DQ-021,Business-rule failure,Critical,True,DETECTED
+DEF-042,REC-008602,Cross-field inconsistency,DQ-021,Business-rule failure,Critical,True,DETECTED
+DEF-043,REC-013702,Cross-field inconsistency,DQ-021,Business-rule failure,Critical,True,DETECTED
+DEF-044,REC-022302,Cross-field inconsistency,DQ-021,Business-rule failure,Critical,True,DETECTED
+DEF-045,REC-004002,Statistical anomaly / review flag,DQ-024,Review flag only,Review,True,DETECTED
+DEF-046,REC-009002,Statistical anomaly / review flag,DQ-024,Review flag only,Review,True,DETECTED
+DEF-047,REC-014602,Statistical anomaly / review flag,DQ-024,Review flag only,Review,True,DETECTED
+DEF-048,REC-023302,Statistical anomaly / review flag,DQ-024,Review flag only,Review,True,DETECTED
+DEF-049,REC-004551,Quality-status inconsistency,DQ-023,Cross-field business-rule failure,Major,True,DETECTED
+DEF-050,REC-010451,Quality-status inconsistency,DQ-023,Cross-field business-rule failure,Major,True,DETECTED
+DEF-051,REC-015451,Quality-status inconsistency,DQ-023,Cross-field business-rule failure,Major,True,DETECTED
+DEF-052,REC-020451,Quality-status inconsistency,DQ-023,Cross-field business-rule failure,Major,True,DETECTED
+DEF-053,REC-006051,Cross-field/time-window inconsistency,DQ-022,Business-rule failure,Critical,True,DETECTED
+DEF-054,REC-011551,Cross-field/time-window inconsistency,DQ-022,Business-rule failure,Critical,True,DETECTED
+DEF-055,REC-016551,Cross-field/time-window inconsistency,DQ-022,Business-rule failure,Critical,True,DETECTED
+DEF-056,REC-021551,Cross-field/time-window inconsistency,DQ-022,Business-rule failure,Critical,True,DETECTED

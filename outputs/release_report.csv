@@ -1,0 +1,2 @@
+Dataset_ID,Records_Evaluated,Rules_Executed,Critical_Issues,Major_Issues,Review_Flags,Total_Issues_or_Flags,Release_Status,Generated_UTC
+production_batch_2026_001,24000,12,12,53,4,69,HOLD — CRITICAL ISSUE(S) PRESENT,2026-08-17T12:17:56Z

@@ -1,0 +1,13 @@
+Rule_ID,Validation_Area,Severity,Checks_Performed,Failures_or_Flags,Result
+DQ-001,required_fields,Critical,18,0,PASS
+DQ-002,identifier_completeness,Critical,120000,4,FAIL
+DQ-004,data_type,Major,191996,4,FAIL
+DQ-006,completeness,Major,192000,4,FAIL
+DQ-007,potential_duplicates,Major,24000,8,FAIL
+DQ-008,numeric_ranges,Major,191992,17,FAIL
+DQ-009,allowed_values,Major,144000,8,FAIL
+DQ-010,timestamp_validity,Major,24000,4,FAIL
+DQ-021,defect_count_consistency,Critical,24000,4,FAIL
+DQ-022,downtime_interval_consistency,Critical,24000,4,FAIL
+DQ-023,quality_status_consistency,Major,24000,8,FAIL
+DQ-024,temperature_anomaly,Review,23996,4,REVIEW
