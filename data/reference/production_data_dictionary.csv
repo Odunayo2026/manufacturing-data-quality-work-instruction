@@ -1,0 +1,19 @@
+Field_Name,Expected_Type,Unit,Nullable,Allowed_Values,Format_or_Domain,Min_Value,Max_Value,Business_Definition,Related_Rule_IDs
+Record_ID,string,—,No,Unique record identifier,Pattern REC-######,—,—,Record-level traceability identifier,DQ-001/DQ-002
+Facility_ID,string,—,No,FAC-01|FAC-02|FAC-03,Controlled domain,—,—,Manufacturing facility identifier,DQ-001/DQ-002/DQ-009
+Production_Line_ID,string,—,No,L01|L02|L03,Controlled domain,—,—,Production line within facility,DQ-003/DQ-009
+Machine_ID,string,—,No,Facility-Line-Machine,Controlled pattern,—,—,Production equipment identifier,DQ-001/DQ-002
+Batch_ID,string,—,No,B-2026-#####,Controlled pattern,—,—,Production batch identifier,DQ-001/DQ-002
+Product_Code,category,—,No,PRD-A|PRD-B|PRD-C|PRD-D,Controlled domain,—,—,Product manufactured during interval,DQ-009
+Timestamp,datetime,—,No,ISO 8601,YYYY-MM-DDTHH:MM:SS,—,—,Start time of 5-minute reporting interval,DQ-010
+Shift_Code,category,—,No,A|B|C,Controlled domain,—,—,Operational shift code,DQ-009
+Operator_Team,category,—,No,TEAM-01..TEAM-06,Controlled domain,—,—,Assigned operator team,DQ-009
+Temperature_C,float,°C,No,—,Numeric,60,100,Observed process temperature,DQ-004/DQ-006/DQ-008/DQ-024
+Pressure_kPa,float,kPa,No,—,Numeric,160,280,Observed line pressure,DQ-004/DQ-006/DQ-008
+Line_Speed_UPM,float,units/min,No,—,Numeric,40,120,Average production line speed,DQ-004/DQ-006/DQ-008
+Cycle_Time_sec,float,seconds,No,—,Numeric,0.70,1.80,Average cycle time,DQ-004/DQ-006/DQ-008
+Energy_kWh,float,kWh,No,—,Numeric,0,25,Energy consumed during interval,DQ-004/DQ-006/DQ-008
+Units_Produced,integer,count,No,—,Non-negative integer,0,600,Units produced during reporting interval,DQ-004/DQ-006/DQ-008/DQ-021
+Defect_Count,integer,count,No,—,Non-negative integer,0,600,Units failing quality criteria,DQ-004/DQ-006/DQ-008/DQ-021/DQ-023
+Downtime_Min,float,minutes,No,—,Numeric,0,5,Downtime within 5-minute interval,DQ-004/DQ-006/DQ-008/DQ-022
+Quality_Status,category,—,No,PASS|REVIEW|HOLD,Controlled domain,—,—,Quality disposition for the interval,DQ-009/DQ-023
