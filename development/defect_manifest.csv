@@ -1,0 +1,57 @@
+Manifest_ID,Record_ID,Row_Number_CSV,Defect_Type,Field_or_Rule,Original_Value,Injected_Value,Expected_Rule_ID,Expected_Detection,Expected_Severity,Developer_Notes
+DEF-001,REC-000512,513,Missing required identifier,Machine_ID,FAC-02-L03-M01,,DQ-002,Identifier completeness failure,Critical,Required identifier deliberately blanked.
+DEF-002,REC-002412,2413,Missing required identifier,Machine_ID,FAC-03-L03-M04,,DQ-002,Identifier completeness failure,Critical,Required identifier deliberately blanked.
+DEF-003,REC-005602,5603,Missing required identifier,Machine_ID,FAC-01-L02-M03,,DQ-002,Identifier completeness failure,Critical,Required identifier deliberately blanked.
+DEF-004,REC-009202,9203,Missing required identifier,Machine_ID,FAC-01-L02-M03,,DQ-002,Identifier completeness failure,Critical,Required identifier deliberately blanked.
+DEF-005,REC-000802,803,Duplicate composite key,Facility_ID+Batch_ID+Machine_ID+Timestamp,FAC-01|B-2026-00006|FAC-01-L01-M02|2026-06-03T18:45:00,FAC-03|B-2026-00006|FAC-03-L03-M01|2026-06-03T18:40:00,DQ-007,Potential duplicate flagged,Major,Composite business key duplicated from preceding record; record itself remains unique.
+DEF-006,REC-003802,3803,Duplicate composite key,Facility_ID+Batch_ID+Machine_ID+Timestamp,FAC-01|B-2026-00027|FAC-01-L02-M03|2026-06-14T04:45:00,FAC-03|B-2026-00027|FAC-03-L01-M03|2026-06-14T04:40:00,DQ-007,Potential duplicate flagged,Major,Composite business key duplicated from preceding record; record itself remains unique.
+DEF-007,REC-007602,7603,Duplicate composite key,Facility_ID+Batch_ID+Machine_ID+Timestamp,FAC-03|B-2026-00053|FAC-03-L02-M01|2026-06-27T09:25:00,FAC-02|B-2026-00053|FAC-02-L02-M01|2026-06-27T09:20:00,DQ-007,Potential duplicate flagged,Major,Composite business key duplicated from preceding record; record itself remains unique.
+DEF-008,REC-012002,12003,Duplicate composite key,Facility_ID+Batch_ID+Machine_ID+Timestamp,FAC-02|B-2026-00084|FAC-02-L02-M02|2026-07-12T16:05:00,FAC-01|B-2026-00084|FAC-01-L02-M02|2026-07-12T16:00:00,DQ-007,Potential duplicate flagged,Major,Composite business key duplicated from preceding record; record itself remains unique.
+DEF-009,REC-001302,1303,Invalid categorical value,Shift_Code,A,D,DQ-009,Allowed-category failure,Major,Shift codes are restricted to A/B/C.
+DEF-010,REC-004302,4303,Invalid categorical value,Shift_Code,C,D,DQ-009,Allowed-category failure,Major,Shift codes are restricted to A/B/C.
+DEF-011,REC-008302,8303,Invalid categorical value,Shift_Code,B,D,DQ-009,Allowed-category failure,Major,Shift codes are restricted to A/B/C.
+DEF-012,REC-014302,14303,Invalid categorical value,Shift_Code,B,D,DQ-009,Allowed-category failure,Major,Shift codes are restricted to A/B/C.
+DEF-013,REC-001602,1603,Malformed timestamp,Timestamp,2026-06-06T13:25:00,2026/99/42 25:61,DQ-010,Datetime parse/format failure,Major,Intentionally invalid datetime string.
+DEF-014,REC-004902,4903,Malformed timestamp,Timestamp,2026-06-18T00:25:00,2026/99/42 25:61,DQ-010,Datetime parse/format failure,Major,Intentionally invalid datetime string.
+DEF-015,REC-008902,8903,Malformed timestamp,Timestamp,2026-07-01T21:45:00,2026/99/42 25:61,DQ-010,Datetime parse/format failure,Major,Intentionally invalid datetime string.
+DEF-016,REC-015302,15303,Malformed timestamp,Timestamp,2026-07-24T03:05:00,2026/99/42 25:61,DQ-010,Datetime parse/format failure,Major,Intentionally invalid datetime string.
+DEF-017,REC-001902,1903,Negative count,Defect_Count,10,-3,DQ-008,Numeric range failure,Major,Counts cannot be negative.
+DEF-018,REC-005202,5203,Negative count,Defect_Count,4,-3,DQ-008,Numeric range failure,Major,Counts cannot be negative.
+DEF-019,REC-009502,9503,Negative count,Defect_Count,2,-3,DQ-008,Numeric range failure,Major,Counts cannot be negative.
+DEF-020,REC-016302,16303,Negative count,Defect_Count,3,-3,DQ-008,Numeric range failure,Major,Counts cannot be negative.
+DEF-021,REC-002202,2203,Out-of-range numeric value,Temperature_C,74.44,125.00,DQ-008,Range validation failure,Major,Configured valid range is 60–100 °C.
+DEF-022,REC-005902,5903,Out-of-range numeric value,Temperature_C,84.52,40.00,DQ-008,Range validation failure,Major,Configured valid range is 60–100 °C.
+DEF-023,REC-010202,10203,Out-of-range numeric value,Temperature_C,78.41,125.00,DQ-008,Range validation failure,Major,Configured valid range is 60–100 °C.
+DEF-024,REC-017302,17303,Out-of-range numeric value,Temperature_C,79.92,40.00,DQ-008,Range validation failure,Major,Configured valid range is 60–100 °C.
+DEF-025,REC-002502,2503,Out-of-range numeric value,Pressure_kPa,220.40,310.00,DQ-008,Range validation failure,Major,Configured valid range is 160–280 kPa.
+DEF-026,REC-006502,6503,Out-of-range numeric value,Pressure_kPa,200.76,140.00,DQ-008,Range validation failure,Major,Configured valid range is 160–280 kPa.
+DEF-027,REC-010902,10903,Out-of-range numeric value,Pressure_kPa,203.42,310.00,DQ-008,Range validation failure,Major,Configured valid range is 160–280 kPa.
+DEF-028,REC-018302,18303,Out-of-range numeric value,Pressure_kPa,206.83,140.00,DQ-008,Range validation failure,Major,Configured valid range is 160–280 kPa.
+DEF-029,REC-002802,2803,Invalid categorical value,Product_Code,PRD-D,PRD-X,DQ-009,Allowed-category failure,Major,Product code not in controlled product domain.
+DEF-030,REC-006902,6903,Invalid categorical value,Product_Code,PRD-B,PRD-X,DQ-009,Allowed-category failure,Major,Product code not in controlled product domain.
+DEF-031,REC-011602,11603,Invalid categorical value,Product_Code,PRD-A,PRD-X,DQ-009,Allowed-category failure,Major,Product code not in controlled product domain.
+DEF-032,REC-019302,19303,Invalid categorical value,Product_Code,PRD-A,PRD-X,DQ-009,Allowed-category failure,Major,Product code not in controlled product domain.
+DEF-033,REC-003102,3103,Incorrect data type,Pressure_kPa,238.15,two_hundred,DQ-004,Numeric type validation failure,Major,Text injected into numeric field.
+DEF-034,REC-007202,7203,Incorrect data type,Pressure_kPa,234.45,two_hundred,DQ-004,Numeric type validation failure,Major,Text injected into numeric field.
+DEF-035,REC-012302,12303,Incorrect data type,Pressure_kPa,211.35,two_hundred,DQ-004,Numeric type validation failure,Major,Text injected into numeric field.
+DEF-036,REC-020302,20303,Incorrect data type,Pressure_kPa,226.48,two_hundred,DQ-004,Numeric type validation failure,Major,Text injected into numeric field.
+DEF-037,REC-003402,3403,Missing numeric value,Energy_kWh,8.065,,DQ-006,Completeness failure,Major,Energy_kWh configured as non-nullable.
+DEF-038,REC-007902,7903,Missing numeric value,Energy_kWh,8.666,,DQ-006,Completeness failure,Major,Energy_kWh configured as non-nullable.
+DEF-039,REC-013002,13003,Missing numeric value,Energy_kWh,8.703,,DQ-006,Completeness failure,Major,Energy_kWh configured as non-nullable.
+DEF-040,REC-021302,21303,Missing numeric value,Energy_kWh,9.822,,DQ-006,Completeness failure,Major,Energy_kWh configured as non-nullable.
+DEF-041,REC-003702,3703,Cross-field inconsistency,Defect_Count <= Units_Produced,Units=342;Defects=2,Units=342;Defects=367,DQ-021,Business-rule failure,Critical,Defect_Count deliberately set above Units_Produced.
+DEF-042,REC-008602,8603,Cross-field inconsistency,Defect_Count <= Units_Produced,Units=351;Defects=2,Units=351;Defects=376,DQ-021,Business-rule failure,Critical,Defect_Count deliberately set above Units_Produced.
+DEF-043,REC-013702,13703,Cross-field inconsistency,Defect_Count <= Units_Produced,Units=458;Defects=9,Units=458;Defects=483,DQ-021,Business-rule failure,Critical,Defect_Count deliberately set above Units_Produced.
+DEF-044,REC-022302,22303,Cross-field inconsistency,Defect_Count <= Units_Produced,Units=444;Defects=4,Units=444;Defects=469,DQ-021,Business-rule failure,Critical,Defect_Count deliberately set above Units_Produced.
+DEF-045,REC-004002,4003,Statistical anomaly / review flag,Temperature_C,81.85,99.80,DQ-024,Review flag only,Review,Extreme but still within configured hard validity range; must not be auto-rejected.
+DEF-046,REC-009002,9003,Statistical anomaly / review flag,Temperature_C,84.88,60.20,DQ-024,Review flag only,Review,Extreme but still within configured hard validity range; must not be auto-rejected.
+DEF-047,REC-014602,14603,Statistical anomaly / review flag,Temperature_C,87.43,99.80,DQ-024,Review flag only,Review,Extreme but still within configured hard validity range; must not be auto-rejected.
+DEF-048,REC-023302,23303,Statistical anomaly / review flag,Temperature_C,73.34,60.20,DQ-024,Review flag only,Review,Extreme but still within configured hard validity range; must not be auto-rejected.
+DEF-049,REC-004551,4552,Quality-status inconsistency,Quality_Status vs defect rate,Units=431;Defects=1;Status=PASS,Units=431;Defects=31;Status=PASS,DQ-023,Cross-field business-rule failure,Major,PASS status conflicts with defect rate above 5%.
+DEF-050,REC-010451,10452,Quality-status inconsistency,Quality_Status vs defect rate,Units=393;Defects=2;Status=PASS,Units=393;Defects=28;Status=PASS,DQ-023,Cross-field business-rule failure,Major,PASS status conflicts with defect rate above 5%.
+DEF-051,REC-015451,15452,Quality-status inconsistency,Quality_Status vs defect rate,Units=429;Defects=4;Status=PASS,Units=429;Defects=31;Status=PASS,DQ-023,Cross-field business-rule failure,Major,PASS status conflicts with defect rate above 5%.
+DEF-052,REC-020451,20452,Quality-status inconsistency,Quality_Status vs defect rate,Units=477;Defects=10;Status=REVIEW,Units=477;Defects=34;Status=PASS,DQ-023,Cross-field business-rule failure,Major,PASS status conflicts with defect rate above 5%.
+DEF-053,REC-006051,6052,Cross-field/time-window inconsistency,Downtime_Min,1.51,7.50,DQ-022,Business-rule failure,Critical,Reporting interval is 5 minutes; downtime cannot exceed interval.
+DEF-054,REC-011551,11552,Cross-field/time-window inconsistency,Downtime_Min,0.00,7.50,DQ-022,Business-rule failure,Critical,Reporting interval is 5 minutes; downtime cannot exceed interval.
+DEF-055,REC-016551,16552,Cross-field/time-window inconsistency,Downtime_Min,0.98,7.50,DQ-022,Business-rule failure,Critical,Reporting interval is 5 minutes; downtime cannot exceed interval.
+DEF-056,REC-021551,21552,Cross-field/time-window inconsistency,Downtime_Min,0.22,7.50,DQ-022,Business-rule failure,Critical,Reporting interval is 5 minutes; downtime cannot exceed interval.
